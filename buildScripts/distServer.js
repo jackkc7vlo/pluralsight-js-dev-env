@@ -1,24 +1,21 @@
 import express from "express";
 import open from "open";
-import webpack from "webpack";
-import config from "../webpack.config.dev.js";
-import { createRequire } from "module";
+//import { createRequire } from "module";
+import compression from 'compression';
 
 /* eslint-disable no-console */
 //var { prototype } = require('events');
 
 const port = 3000;
 const app = express();
-const compiler = webpack(config);
-const require = createRequire(import.meta.url);
+//const require = createRequire(import.meta.url);
 
-app.use(require('webpack-dev-middleware')(compiler, {
-    publicPath: config.output.publicPath
-}));
+app.use(compression());
+app.use(express.static('dist'));
 
 app.get('/', function(req, res) {
    //res.sendFile(path.join(__dirname, '../src/index.html'));
-   res.sendFile('src/index.html', { root: '.'});
+   res.sendFile('dist/index.html', { root: '.'});
 });
 
 app.get('/users', function(req, res) {

@@ -1,18 +1,21 @@
 import path from "path";
-const moduleURL = new URL(import.meta.url);
-const __dirname = path.dirname(moduleURL.pathname);
+import HtmlWebpackPlugin from "html-webpack-plugin";
 
 export default {
-  node: { __dirname: true},
   mode: "development",
   devtool: "eval-source-map",
   entry: "./src/index.js",
   output: {
-    path: path.resolve(__dirname, "src"),
+    path: path.resolve("src"),
     publicPath: "/",
     filename: "bundle.js",
   },
-  plugins: [],
+  plugins: [
+    // Create HTML file that includes reference to bundled JS.
+    new HtmlWebpackPlugin({
+      template: "src/index.html",
+    }),
+  ],
   module: {
     rules: [
       { test: /\.js$/, exclude: /node_modules/, use: ["babel-loader"] },
