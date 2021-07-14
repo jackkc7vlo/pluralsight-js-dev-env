@@ -15,6 +15,13 @@
      "mocha": true
    },
    "rules": {
+      "curly" :"error",
+      "eqeqeq" :"error",
+      "brace-style" :"error",
+      "keyword-spacing":"error",
+      "new-cap":"error",
+      "new-parens":"error",
+      "indent": ["error", 2],
       "no-console" : 1
    }
  }

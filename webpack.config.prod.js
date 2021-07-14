@@ -9,8 +9,8 @@ export default {
   mode: "production",
   devtool: "source-map",
   entry: {
-   main: path.resolve("./src/index.js"),
-   vendor: path.resolve("./src/vendor.js"),
+    main: path.resolve("./src/index.js"),
+    vendor: path.resolve("./src/vendor.js"),
   },
   output: {
     path: path.resolve("dist"),
@@ -18,16 +18,16 @@ export default {
     filename: "[name].[chunkhash].js",
   },
   plugins: [
-     // Generate an external css file with a hash in the filename
-     new MiniCssExtractPlugin({
-        filename: "[name].[chunkhash].css",
-     }),
+    // Generate an external css file with a hash in the filename
+    new MiniCssExtractPlugin({
+      filename: "[name].[chunkhash].css",
+    }),
 
-     // Create HTML file that includes reference to bundled JS.
-     new HtmlWebpackPlugin({
-        template: "src/index.html",
-        trackJSToken: "dceccdda8aa74662a0f5ccbe0476c66e"
-     }),
+    // Create HTML file that includes reference to bundled JS.
+    new HtmlWebpackPlugin({
+      template: "src/index.html",
+      trackJSToken: "dceccdda8aa74662a0f5ccbe0476c66e"
+    }),
   ],
   module: {
     rules: [

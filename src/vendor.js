@@ -3,6 +3,6 @@
   in the production build only.
   */
 
-  /* eslint-disable no-unused-vars */
+/* eslint-disable no-unused-vars */
 
-  import fetch from 'whatwg-fetch';
+import fetch from 'whatwg-fetch';
